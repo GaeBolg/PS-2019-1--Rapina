@@ -1,0 +1,205 @@
+/*Seta imagem bg e seta 100% da tela*/
+body{
+   background-image: url('../img/black-green.jpg');
+   background-size: 100% auto;
+}
+#alerta{
+    color:white;
+}
+/*Centraliza o painel no meio da tela*/
+#painel-meio{
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    z-index: 1;
+
+}
+
+/*Define tamanho da logo na navbar*/
+.img-size{
+    width: 140px;
+    margin: 5px;
+    margin-top: -13px;
+}
+
+
+/* Alinha o texto ao lado do input*/
+h3{
+    margin-top: 9px;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+/*Remove borda e escolhe cor do painel e dos inputs*/
+.form-control, .panel{
+    background: rgba(40,43,48,.75);
+    border: none;
+}
+/*Coloca margin de 10 px para imagem de baixo*/
+.form-control{
+    margin-bottom: 10px;
+}
+/*Muda a cor do texto*/
+input:focus {
+    color: #FFFFFF;
+    /*text-transform: uppercase;*/
+}
+
+
+/*Cabecalho  da div do login*/
+.panel-default>.panel-heading {
+    color: white;
+    background-color: rgba(30,33,36, .75);
+    border-color: transparent;
+}   
+/*Foco verde*/
+.form-control:focus {
+    border-color: white;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,255,.075), 0 0 8px rgba(0,255,0,.6);
+     box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(38,128,0,.6); 
+     /*text-transform: uppercase;*/
+}
+/*Btn 100% div e height*/
+.btn{
+    width: 100%;
+    margin-top: 10px;
+    line-height: 50px;
+    font-size: 12pt;
+}
+/*Btn verde*/
+.btn-primaryGreen {
+    color: #fff;
+    background-color: #6E8BCE;  
+    border-color: rgb(85, 92, 150);
+    margin-bottom: 10px;
+}
+.btn-primaryGreen:hover{
+    color: white;
+    background-color: #6E8BCE;
+    border-color:  #6E8BCE;
+}
+.btn-primaryGreen:focus{
+    color: white;
+    background-color: #6E8BCE;
+    border-color:  #6E8BCE;
+    outline: 0;
+}
+
+.btn-primaryGreen:active:focus {
+    color: white;
+    background-color: #6E8BCE;
+    border-color: #6E8BCE;
+    outline: 0;
+}
+/*Inputs*/
+.transp {
+    border: 0;
+    outline: 0;
+    background: rgba(30,33,36, .75);;
+    border-bottom: 1px solid gray;
+    color: white;
+    /*text-transform: uppercase;*/
+
+}
+.preench {
+    padding-bottom: 5px;
+}
+
+.transp:focus{
+    border-bottom: 3px solid white;
+    margin-top: -1px;
+    margin-bottom: -1px; 
+    /*text-transform: uppercase;*/
+}
+
+input{
+    width: 100%;
+}
+
+.navbar{
+    background: rgba(40,43,48,.75);
+    border:none;
+    border-radius: 0;
+    min-height: 65px;
+}
+
+.resultados{
+    color: white;
+}
+
+
+
+/* Teste Carregamento */
+#blanket,#aguarde {
+    position: fixed;
+    display: none;
+}
+
+#blanket {
+    left: 0;
+    top: 0;
+    background-color: #f0f0f0;
+    filter: alpha(opacity =         65);
+    height: 100%;
+    width: 100%;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=65)";
+    opacity: 0.65;
+    z-index: 9998;
+}
+
+#aguarde {
+    width: auto;
+    height: 30px;
+    top: 40%;
+    left: 45%;
+    background: url('http://i.imgur.com/SpJvla7.gif') no-repeat 0 50%; /* o gif que desejar, eu geralmente uso um 20x20*/
+    line-height: 30px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    z-index: 9999;
+    padding-left: 27px;
+}
+
+/*Resultado*/
+h4{
+    font-style:italic;
+    font-weight:bold;
+}
+
+.header {
+    color:white;
+}
+
+.socorro {
+  width:200px;
+  height:65px;
+  cursor:pointer;
+  color:#fff;
+  margin: auto;
+  border:3px solid transparent;
+  border-radius:50px;
+  text-align:center;
+  font-size:20px;
+  background:
+    linear-gradient(-45deg, #2ae88a 0%, #08aeea 100%) border-box;
+
+    margin-bottom: 10px
+}
+
+
+.socorro:hover {
+     background:
+    linear-gradient(-45deg, #2f9663 0%, #08aeea 100%) border-box;
+}
+
+.containerAtualizar > .btn{
+
+    line-height: 0px;
+}
