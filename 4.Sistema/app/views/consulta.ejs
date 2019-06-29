@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script language="JavaScript" src="../js/consulta.js"></script>
+	<meta charset="utf-8">
+	<link href="../public/img/Cwhite.png" rel="icon">
+	<title>Rapina - Consulta</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="../public/css/estilo.css">
+		<script src="https://use.fontawesome.com/fc297ee479.js"></script>
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="javascript:window.history.go(-1)">
+        <img class="img-size" alt="Brand" src="../public/img/logowhite.png">
+      </a>
+         <a class="fa fa-chevron-circle-left fa-3x logosMenu" aria-hidden="true" href="javascript:window.history.go(-1)" style="margin-top: 10px; margin-left: 30px">Voltar</a>
+    </div>
+	
+  </div>
+</nav>
+
+
+<div class="col-md-4 col-md-offset-4" id="painel-meio">
+	<div class="panel panel-default"  text-transform: uppercase>
+		<div class="panel-heading"> 
+			<h1>Consulta de Placas</h1>                               
+		</div>
+		
+			<fieldset>
+				<div class="panel-body">
+					<div class="col-xs-12">
+						<div class="col-xs-12 preench">
+							<h2><font color="white">Placa</font></h2>
+							<input  required="" class="transp" type="text" name="placa" id="placa" maxlength="7" minlength="7" autofocus=""/>
+							
+						</div>
+					</div>
+					<div class= "col-xs-12">
+						<div class= "col-xs-12">
+							<div class=col-md-2></div>
+							<button type="submit" onclick="consultarPlaca()" class="btn btn-primaryWhite socorro" style='font-weight:bold;'>Consultar</button>
+							<div class=col-md-1></div>
+						</div>
+
+						<h4 class="resultados" id="resultado"></h4>
+                        <h4 class="resultados" id="resultado2"></h4>
+                        <h4 class="resultados" id="resultado3"></h4>
+                        <h4 class="resultados" id="resultado4"></h4>
+                        <h4 class="resultados" id="resultado5"></h4>
+                        <h4 class="resultados" id="resultado6"></h4>
+                        <h4 class="resultados" id="resultado7"></h4>
+
+                        <div id="blanket"></div>
+                        <div id="aguarde">Aguarde...</div>
+
+                       
+
+						    <script>
+
+						        function consultarPlaca(){
+
+                                    document.getElementById('blanket').style.display = 'block';
+                                    document.getElementById('aguarde').style.display = 'block';
+
+						            var xhr = new XMLHttpRequest();
+						          
+						            var data = {
+						                placa: document.getElementById("placa").value
+						            }
+
+						            xhr.open('POST', "/ola", true);
+						            xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+						            //xhr.onload = function () {
+						            //    document.getElementById("resultado").textContent = xhr.response;
+						                
+						            xhr.onload = function() {
+						            var dados = xhr.response;
+
+                                    /////////////////////////////
+                                    /* var arr;
+                                    for (var i in data)
+                                        arr.push([i, data[i]]);
+
+                                    for (var i; i> 6; i++){
+                                        var para = document.createElement("h1");
+                                        var node = document.createTextNode(arr[i]);
+                                        para.appendChild(node);
+
+                                        var element = document.getElementById("resultado");
+                                        element.appendChild(para);
+                                    }*/
+                                    /////////////////////////////
+
+                                    //tudo = JSON.parse(dados).situacao + "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n" + 
+                                    //JSON.parse(dados).modelo + "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n" + JSON.parse(dados).cor
+
+                                    
+                                    
+
+                                    document.getElementById("resultado").textContent = "Situação: " + JSON.parse(dados).situacao;
+                                    document.getElementById("resultado2").textContent ="Modelo: " + JSON.parse(dados).modelo;
+                                    document.getElementById("resultado3").textContent ="Cor: " + JSON.parse(dados).cor;
+                                    document.getElementById("resultado4").textContent ="Ano: " + JSON.parse(dados).ano;
+						            document.getElementById("resultado5").textContent ="Placa: " + JSON.parse(dados).placa;
+                                    document.getElementById("resultado6").textContent ="UF: " + JSON.parse(dados).uf;
+                                    document.getElementById("resultado7").textContent ="Município: " + JSON.parse(dados).municipio;
+						               
+                                       //tirar aguarde da tela
+                                       if(JSON.parse(dados).situacao){                                 
+                                        $('#aguarde, #blanket').hide()
+                                       }
+						            
+						            };
+						            xhr.send(JSON.stringify(data));
+						            
+						            //document.getElementById("placa").value
+						           
+						            }
+                                   
+						    </script>
+
+					</div>
+				</div>
+			</fieldset>
+		
+		
+		<!-- JQUERY -->
+	<script
+	  src="https://code.jquery.com/jquery-3.2.1.min.js"
+	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	  crossorigin="anonymous"></script>
+		
+</body>
+</html>

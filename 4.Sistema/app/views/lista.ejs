@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+	<link href="../public/img/Cwhite.png" rel="icon">
+	<title>Rapina - Lista</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="../public/css/estilo.css">
+		<script src="https://use.fontawesome.com/fc297ee479.js"></script>
+
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="javascript:window.history.go(-1)">
+        <img class="img-size" alt="Brand" src="../public/img/logowhite.png">
+      </a>
+            <a class="fa fa-chevron-circle-left fa-3x logosMenu" aria-hidden="true" href="javascript:window.history.go(-1)" style="margin-top: 10px; margin-left: 30px">Voltar</a>
+    </div>
+	
+  </div>
+</nav>
+
+
+			<div class="col-md-12 header">
+				<h1>Historico de placas</h1>
+				<div class=col-md-5></div>
+				<div class="col-md-2 containerAtualizar">
+					<button type="button"  class="btn btn-primaryWhite socorro">Atualizar</button>
+				</div>
+				<div class=col-md-5></div>
+				
+			</div>
+			<div class="col-md-12">
+				<table class="table table-hover" style="color:white">
+	                <thead>
+	                    <tr>
+	                        <th>Situacao</th>
+	                        <th>Modelo</th>
+	                        <th>Cor</th>
+	                        <th>Ano</th>
+	                        <th>Placa</th>
+	                        <th>UF</th>
+	                        <th>Municipio</th>
+	                    </tr>
+	                </thead>
+	                
+	                <tbody id="addInfo">
+	                
+
+	                </tbody>
+	                
+	                <tfoot>
+	                </tfoot>
+	            </table>
+            </div>	
+	             
+							<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+						    <script>
+						    	$(document).ready(function() {
+						    		$("button").click(function(){
+						    			$.ajax({
+										  type: "POST",
+										  url: "/olaria" ,
+										  data: {placa : $('#placa').val()},
+										  success: (data) => {  		
+										  	$('#addInfo').empty();
+										  	data.forEach(item => {
+										  		$('#addInfo').append(`<tr>`);
+										  		$('#addInfo').append(`<td> ${item.situacao} </td>`);
+										  		$('#addInfo').append(`<td> ${item.modelo} </td>`);
+										  		$('#addInfo').append(`<td> ${item.cor} </td>`);
+										  		$('#addInfo').append(`<td> ${item.ano} </td>`);
+										  		$('#addInfo').append(`<td> ${item.placa} </td>`);
+										  		$('#addInfo').append(`<td> ${item.uf} </td>`);
+										  		$('#addInfo').append(`<td> ${item.municipio} </td>`);
+										  		$('#addInfo').append(`</tr>`);
+
+										  	});
+										  }
+										});  
+						    		});
+								 	
+								});
+						    </script>
+
+		
+
+</body>
+</html>

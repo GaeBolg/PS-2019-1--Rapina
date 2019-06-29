@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="../public/img/Cwhite.png" rel="icon">
+	<title>Rapina</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="../public/css/estiloChat.css">
+	<!-- JQuery -->
+	<script
+	  src="https://code.jquery.com/jquery-3.2.1.min.js"
+	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	  crossorigin="anonymous"></script>
+	<script src="https://use.fontawesome.com/fc297ee479.js"></script>
+
+	<!-- WINDOW CSS -->
+	<link rel="stylesheet" type="text/css" href="../public/css/windowstyle.css">
+	<script src="/socket.io/socket.io.js"></script>
+	
+</head>
+<body>
+<input type="hidden" value="<%= user%>" id="nick">
+<!-- Barrinha do matheus -->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <img class="img-size" alt="Brand" src="../public/img/logowhite.png">        
+      </a>
+    </div>
+			
+  </div>
+</nav>
+<!-- Fim da barrinha -->
+
+<div class="col-xs-12" id="bodyBody">
+	<div class="col-xs-1" id="menu">
+		<div class="col-xs-12 menuSide" id="menuOpcoes">
+			<a href="cadastro" disabled>
+				<div id="escolhaMenu" class="col-xs-12">
+					
+					<span class="textspn ctrltext">Usuario</span>
+					<i class="fa fa-user-circle fa-4x logosMenu" aria-hidden="true" ></i>
+					</div>
+			</a>
+			<a href="lista">
+				<div id="escolhaMenu" class="col-xs-12" id="jogo">	
+					<span class="textspn ctrltext" >Veículos</span>
+					<i class="fa fa-car fa-4x logosMenu" aria-hidden="true" ></i>	
+				</div>		
+			</a> 
+			
+			<a href="consulta" disabled>
+				<div id="escolhaMenu" class="col-xs-12" disabled>
+					<span class="textspn ctrltext">Consulta</span>
+					<i class="fa fa-search fa-5x logosMenu" aria-hidden="true" ></i>					
+				</div> 
+			</a>
+			<a href="javascript:configUser()" >	
+				<div id="escolhaMenu" class="col-xs-12" style="border: none">
+					<span class="textspn ctrltext">Ajustes</span>
+					<i class="fa fa-cogs fa-4x logosMenu" aria-hidden="true" ></i>	
+				</div> 
+			</a>
+
+		</div>
+	</div>
+	<div class="col-xs-9" id="texto">
+		<div class="col-xs-4" id="showMsg">
+		</div>
+		<div id="showGame" style="margin-top: 5%;">
+			
+		</div>
+
+	</div>
+
+	
+</div>
+	<script type="text/javascript" src= "../public/js/conexaoSocket.js"></script>
+	<!-- P5 files -->
+	<script language="javascript" type="text/javascript" src="../public/lib/p5.js"></script>
+	<script language="javascript" src="../public/lib/p5.dom.js"></script>
+	<!-- fim p5 -->
+	<script type="text/javascript" src= "../public/js/jogos.js"></script>
+	<script type="text/javascript" src= "../public/js/configuracoes.js"></script>
+	<script type="text/javascript" src= "../public/js/user.js"></script>
+<script type="text/javascript">
+
+
+	
+	$("#menuOpcoes").mouseover(function(){
+		if(btnAnimacao){
+			$("#menuOpcoes").removeClass("menuSide").addClass("menuSideClone");
+			return;
+		}
+		 
+		$("i").removeClass('.logosMenu').addClass('logosMenuExtend');
+		$(".textoBtn").css("visibility", "visible");
+		$(".ctrltext").removeClass("textspn").addClass("textspnShow");
+	}).mouseout(function(){
+		if(btnAnimacao){
+			$("#menuOpcoes").removeClass("menuSideClone").addClass("menuSide");
+			return;
+		}
+		$("i").removeClass('logosMenuExtend').addClass('.logosMenu');
+		$(".textoBtn").css("visibility", "hidden");
+		$(".ctrltext").removeClass("textspnShow").addClass("textspn");
+		// $('body').css("background-image", "url('dudley.jpg')");
+	});
+
+	$("#searchDeAmigo").bind('enterKey',function(e){
+		alert('pata de elefante');
+	});
+
+
+
+	$('#reset').click(function(){
+	alert('wololo');
+});	
+</script>
+
+
+<!-- comeco -->
+<!-- fim -->
+</body>
+</html>
