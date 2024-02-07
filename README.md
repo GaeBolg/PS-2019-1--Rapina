@@ -14,3 +14,23 @@ Funcionalidades
     Monitoramento de Vagas: O sistema também monitora as vagas disponíveis no estacionamento. Sensores podem ser integrados para detectar a ocupação das vagas e fornecer informações em tempo real sobre os espaços livres.
 
     Gerenciamento de Pagamentos: O Rapina oferece a funcionalidade de registro e acompanhamento de pagamentos. Os usuários podem realizar pagamentos por períodos de estacionamento, e o sistema manterá um histórico dessas transações.
+
+#EN
+
+License Plate Reading and Parking Control System Rapina
+
+Welcome to the repository of the Rapina project - License Plate Reading and Parking Control System! This project was developed as part of the Software Design discipline, with the aim of creating a system capable of automatically reading vehicle license plates and managing parking control in a specific location.
+
+Overview
+
+The Rapina system is a solution that utilizes computer vision technologies to identify and record the license plates of vehicles entering and exiting the parking lot. Additionally, it offers access control features and monitors the available space in the parking lot.
+
+Features
+
+License Plate Reading: The system is capable of capturing images of vehicle plates through cameras positioned at the entrances and exits of the parking lot. Using image processing algorithms and pattern recognition, the plates are identified and recorded in the database.
+
+Access Control: Based on the identified plates, the system automatically controls vehicle access to the parking lot. The entry barrier is activated only for authorized vehicles registered in the system.
+
+Parking Space Monitoring: The system also monitors the available parking spaces. Sensors can be integrated to detect occupancy of the spaces and provide real-time information about available spots.
+
+Payment Management: Rapina offers the functionality of recording and tracking payments. Users can make payments for parking periods, and the system will maintain a history of these transactions.
